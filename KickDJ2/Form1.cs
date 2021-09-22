@@ -23,7 +23,7 @@ namespace KickDJ2
                 InitIni.Write("ip", "0");
                 InitIni.Write("port", "0");
                 InitIni.Write("param", "0");
-                MessageBox.Show("Arquivo config.ini não configurado, favor inserir os dados da sua estação.", "Erro [config.ini]", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("config.ini file settings are not set yet, open the file and enter your ShoutCast web station data.", "Error [config.ini]", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 System.Environment.Exit(1);
             }
             InitializeComponent();
@@ -49,7 +49,9 @@ namespace KickDJ2
             //
             string html = string.Empty;
             decimal sid = sidSel.Value;
+            //ShoutCast V1
             //var url = @""+radio_ip+":"+radio_port+"/admin.cgi?sid=&pass="+radio_pass+"&mode=kicksrc";
+            //ShoutCast V2
             var url = @"" + radio_ip + ":" + radio_port + "/admin.cgi?sid="+sid+"&pass="+radio_pass+"&mode=kicksrc";
             Console.WriteLine(url);
             label2.Text = "Connecting...";
@@ -84,21 +86,6 @@ namespace KickDJ2
                 button1.Enabled = true;
                 progressBar1.Visible = false;
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void l_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
